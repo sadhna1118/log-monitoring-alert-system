@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  dashboard:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+      - ./models:/app/models
+      - ./security_logs.db:/app/security_logs.db
+    environment:
+      - DATABASE_URL=sqlite:///security_logs.db
+      - DASHBOARD_PORT=5000
+      - DASHBOARD_HOST=0.0.0.0
+    env_file:
+      - .env
+    restart: unless-stopped
+  
+  monitor:
+    build: .
+    command: python src/monitor.py
+    volumes:
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+      - ./models:/app/models
+      - ./security_logs.db:/app/security_logs.db
+    environment:
+      - DATABASE_URL=sqlite:///security_logs.db
+    env_file:
+      - .env
+    restart: unless-stopped
+    depends_on:
+      - dashboard

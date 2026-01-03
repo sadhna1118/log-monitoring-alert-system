@@ -1,0 +1,38 @@
+{
+  "email": {
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "sender_email": "your-email@gmail.com",
+    "sender_password": "your-app-password",
+    "recipient_email": "security-team@company.com"
+  },
+  "monitoring": {
+    "log_file_path": "logs/system.log",
+    "check_interval_seconds": 60,
+    "alert_threshold": 5,
+    "enable_email_alerts": true
+  },
+  "reporting": {
+    "report_directory": "reports",
+    "generate_daily_report": true,
+    "report_time": "23:59"
+  },
+  "database": {
+    "url": "sqlite:///security_logs.db"
+  },
+  "dashboard": {
+    "host": "0.0.0.0",
+    "port": 5000,
+    "debug": false
+  },
+  "machine_learning": {
+    "enable_ml_detection": true,
+    "model_path": "models/anomaly_detector.pkl",
+    "contamination": 0.1,
+    "min_samples": 10
+  },
+  "slack": {
+    "webhook_url": "",
+    "enable_slack_alerts": false
+  }
+}

@@ -1,0 +1,46 @@
+# Quick GitHub Deployment Commands
+# Copy and paste these commands one by one in PowerShell
+
+# STEP 1: Initialize Git (if not already done)
+git init
+
+# STEP 2: Add all files
+git add .
+
+# STEP 3: Create initial commit
+git commit -m "Initial commit: Log Monitoring & Alert System"
+
+# STEP 4: Create GitHub repository
+# Go to: https://github.com/new
+# Repository name: log-monitoring-alert-system
+# Make it Public (for portfolio)
+# DON'T initialize with README
+# Click "Create repository"
+
+# STEP 5: Connect to GitHub (replace YOUR_USERNAME with your GitHub username)
+git remote add origin https://github.com/YOUR_USERNAME/log-monitoring-alert-system.git
+
+# STEP 6: Push to GitHub
+git branch -M main
+git push -u origin main
+
+# DONE! Your project is now on GitHub!
+
+# ===== FUTURE UPDATES =====
+# When you make changes:
+
+git add .
+git commit -m "Description of changes"
+git push origin main
+
+# ===== VERIFY BEFORE PUSHING =====
+# Make sure these are NOT in your repo:
+# - .env (actual environment file with passwords)
+# - *.db (database files)
+# - config.json with real credentials
+
+# These SHOULD be in your repo:
+# - .env.example (template)
+# - README.md
+# - All documentation
+# - Source code

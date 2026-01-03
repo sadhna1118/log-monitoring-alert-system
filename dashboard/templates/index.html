@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Monitoring Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔐 Security Monitoring Dashboard</h1>
+            <div class="status-indicator">
+                <span class="status-dot" id="statusDot"></span>
+                <span id="statusText">Monitoring Active</span>
+            </div>
+        </header>
+
+        <!-- Statistics Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-content">
+                    <h3>Total Events</h3>
+                    <p class="stat-value" id="totalEvents">-</p>
+                </div>
+            </div>
+            
+            <div class="stat-card warning">
+                <div class="stat-icon">⚠️</div>
+                <div class="stat-content">
+                    <h3>Suspicious Events</h3>
+                    <p class="stat-value" id="suspiciousEvents">-</p>
+                </div>
+            </div>
+            
+            <div class="stat-card danger">
+                <div class="stat-icon">🚨</div>
+                <div class="stat-content">
+                    <h3>Total Threats</h3>
+                    <p class="stat-value" id="totalThreats">-</p>
+                </div>
+            </div>
+            
+            <div class="stat-card info">
+                <div class="stat-icon">🌐</div>
+                <div class="stat-content">
+                    <h3>Suspicious IPs</h3>
+                    <p class="stat-value" id="suspiciousIPs">-</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-section">
+            <div class="chart-container">
+                <h2>Threat Distribution</h2>
+                <canvas id="threatChart"></canvas>
+            </div>
+            
+            <div class="chart-container">
+                <h2>Top Suspicious IPs</h2>
+                <canvas id="ipChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Recent Events Table -->
+        <div class="table-container">
+            <h2>Recent Security Events</h2>
+            <div class="table-controls">
+                <button class="btn" onclick="showAllEvents()">All Events</button>
+                <button class="btn btn-danger" onclick="showSuspiciousOnly()">Suspicious Only</button>
+                <button class="btn btn-secondary" onclick="refreshData()">🔄 Refresh</button>
+            </div>
+            <div class="table-wrapper">
+                <table id="eventsTable">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Level</th>
+                            <th>Message</th>
+                            <th>Threats</th>
+                            <th>Source IP</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventsTableBody">
+                        <tr>
+                            <td colspan="5" class="loading">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer>
+            <p>Last updated: <span id="lastUpdate">-</span></p>
+            <p>Log Monitoring & Alert System | Auto-refresh: 30s</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+# Core dependencies
+secure-smtplib==0.1.1
+python-dateutil==2.9.0
+
+# Web Dashboard
+flask==3.1.0
+flask-cors==5.0.0
+
+# Database
+sqlalchemy==2.0.36
+
+# CLI Enhancement
+rich==13.9.4
+click==8.1.8
+
+# Webhook Integration
+requests==2.32.3
+
+# Machine Learning (Optional - for anomaly detection)
+scikit-learn==1.6.1
+numpy==2.2.1
+
+# Visualization
+matplotlib==3.10.0
+plotly==5.24.1
+
+# Environment Management
+python-dotenv==1.0.1
+
+# Testing
+pytest==8.3.4
+pytest-cov==6.0.0
+pytest-mock==3.14.0
+
+# Code Quality
+black==24.10.0
+flake8==7.1.1
+mypy==1.14.0
